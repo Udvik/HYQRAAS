@@ -7,8 +7,13 @@ const api = axios.create({
 export const generateKey = async (mode, length) => {
   const response = await api.post("/generate-key", {
     mode,
-    length,
+    key_length: length,
   });
+  return response.data;
+};
+
+export const getAnalytics = async () => {
+  const response = await api.get("/analytics");
   return response.data;
 };
 
