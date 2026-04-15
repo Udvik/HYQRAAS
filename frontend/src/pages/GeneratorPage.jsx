@@ -40,8 +40,8 @@ export default function GeneratorPage() {
     color === "green"
       ? "#16a34a"
       : color === "orange"
-      ? "#ea580c"
-      : "#dc2626";
+        ? "#ea580c"
+        : "#dc2626";
 
   return (
     <div>
@@ -56,12 +56,18 @@ export default function GeneratorPage() {
             <label style={styles.label}>Mode</label>
             <select
               style={styles.input}
-              value={mode}
+              value={mode}  
               onChange={(e) => setMode(e.target.value)}
             >
-              <option value="hybrid">Hybrid</option>
-              <option value="classical">Classical</option>
-              <option value="quantum">Quantum</option>
+              <option value="hybrid" style={{ background: "#ffffff", color: "#000000" }}>
+                Hybrid
+              </option>
+              <option value="classical" style={{ background: "#ffffff", color: "#000000" }}>
+                Classical
+              </option>
+              <option value="quantum" style={{ background: "#ffffff", color: "#000000" }}>
+                Quantum
+              </option>
             </select>
           </div>
 
@@ -138,8 +144,8 @@ export default function GeneratorPage() {
                         color === "green"
                           ? "linear-gradient(90deg, #22c55e, #22d3ee)"
                           : color === "orange"
-                          ? "linear-gradient(90deg, #f97316, #facc15)"
-                          : "linear-gradient(90deg, #ef4444, #f97316)",
+                            ? "linear-gradient(90deg, #f97316, #facc15)"
+                            : "linear-gradient(90deg, #ef4444, #f97316)",
                     }}
                   />
                 </div>
