@@ -4,6 +4,7 @@ const links = [
   { name: "Dashboard", path: "/" },
   { name: "Generator", path: "/generator" },
   { name: "Analytics", path: "/analytics" },
+  { name: "Benchmark Metrics", path: "/benchmark-metrics" },
   { name: "OTP Demo", path: "/otp" },
   { name: "Lottery Demo", path: "/lottery" },
   { name: "History", path: "/history" },
