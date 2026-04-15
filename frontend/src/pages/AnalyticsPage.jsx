@@ -49,25 +49,25 @@ export default function AnalyticsPage() {
     {
       title: "Hybrid Avg Score",
       value: hybridSummary.avg_score ?? 0,
-      subtitle: "Overall randomness quality",
+      subtitle: "Hybrid randomness quality",
       color: "linear-gradient(135deg, #8b5cf6, #22d3ee)",
     },
     {
       title: "Quantum Avg Score",
       value: quantumSummary.avg_score ?? 0,
-      subtitle: "Raw quantum source quality",
+      subtitle: "Quantum Randomness quality",
       color: "linear-gradient(135deg, #ef4444, #f97316)",
     },
     {
       title: "Hybrid Min-Entropy",
       value: hybridSummary.avg_min_entropy ?? 0,
-      subtitle: "Closer to ideal randomness",
+      subtitle: "Hybrid randomness",
       color: "linear-gradient(135deg, #22c55e, #14b8a6)",
     },
     {
       title: "Quantum Min-Entropy",
       value: quantumSummary.avg_min_entropy ?? 0,
-      subtitle: "Paper-aligned weak source",
+      subtitle: "Paper-aligned source",
       color: "linear-gradient(135deg, #f97316, #eab308)",
     },
   ];
