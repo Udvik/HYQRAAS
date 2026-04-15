@@ -12,11 +12,6 @@ export const generateKey = async (mode, length) => {
   return response.data;
 };
 
-export const getAnalytics = async () => {
-  const response = await api.get("/analytics");
-  return response.data;
-};
-
 export const generateOtp = async (mode) => {
   const response = await api.get("/demo/otp", {
     params: { mode },
@@ -39,6 +34,16 @@ export const getStats = async () => {
 
 export const getHistory = async () => {
   const response = await api.get("/history");
+  return response.data;
+};
+
+export const getAnalytics = async () => {
+  const response = await api.get("/analytics");
+  return response.data;
+};
+
+export const getBenchmarkResults = async () => {
+  const response = await api.get("/benchmark-results");
   return response.data;
 };
 
