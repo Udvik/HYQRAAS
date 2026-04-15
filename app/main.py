@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-
+import os
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
@@ -325,3 +325,31 @@ def lottery_demo(payload: LotteryRequest):
         "source_mode": payload.mode,
         "health_score": score
     }
+@app.get("/benchmark-results")
+def benchmark_results():
+    benchmark_file = os.path.join("results", "benchmark_results.json")
+
+    if not os.path.exists(benchmark_file):
+        return {
+            "quantum": {
+                "avg_score": 0,
+                "score_std_dev": 0,
+                "avg_min_entropy": 0,
+                "entropy_std_dev": 0,
+                "avg_pass_count": 0,
+                "full_pass_percent": 0,
+                "avg_latency": 0
+            },
+            "hybrid": {
+                "avg_score": 0,
+                "score_std_dev": 0,
+                "avg_min_entropy": 0,
+                "entropy_std_dev": 0,
+                "avg_pass_count": 0,
+                "full_pass_percent": 0,
+                "avg_latency": 0
+            }
+        }
+
+    with open(benchmark_file, "r", encoding="utf-8") as f:
+        return json.load(f)
