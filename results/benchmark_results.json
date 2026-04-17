@@ -1,0 +1,30 @@
+{
+  "quantum": {
+    "avg_score": 49.8,
+    "score_std_dev": 9.35,
+    "avg_min_entropy": 0.8551,
+    "entropy_std_dev": 0.0189,
+    "avg_pass_count": 2.45,
+    "full_pass_percent": 0.0,
+    "avg_latency": 357.6,
+    "avg_balance": 0.4471,
+    "avg_p_value": 0.041449,
+    "avg_runs": 1940.55,
+    "runs": 20,
+    "bytes_per_run": 512
+  },
+  "hybrid": {
+    "avg_score": 96.01,
+    "score_std_dev": 3.91,
+    "avg_min_entropy": 0.9843,
+    "entropy_std_dev": 0.0128,
+    "avg_pass_count": 3.95,
+    "full_pass_percent": 95.0,
+    "avg_latency": 353.82,
+    "avg_balance": 0.4975,
+    "avg_p_value": 0.505986,
+    "avg_runs": 2052.2,
+    "runs": 20,
+    "bytes_per_run": 512
+  }
+}
