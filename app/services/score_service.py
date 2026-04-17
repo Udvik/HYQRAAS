@@ -12,13 +12,15 @@ def score_entropy(entropy_per_bit: float) -> float:
     elif entropy_per_bit >= 0.97:
         return 95 + ((entropy_per_bit - 0.97) / 0.02) * 5
     elif entropy_per_bit >= 0.94:
-        return 80 + ((entropy_per_bit - 0.94) / 0.03) * 15
+        return 70 + ((entropy_per_bit - 0.94) / 0.03) * 15
     elif entropy_per_bit >= 0.90:
         return 60 + ((entropy_per_bit - 0.90) / 0.04) * 20
     elif entropy_per_bit >= 0.85:
-        return 35 + ((entropy_per_bit - 0.85) / 0.05) * 25
+        return 45 + ((entropy_per_bit - 0.85) / 0.05) * 20
+    elif entropy_per_bit >= 0.80:
+        return 30 + ((entropy_per_bit - 0.80) / 0.05) * 15  
     else:
-        return clamp((entropy_per_bit / 0.85) * 35, 0, 35)
+        return clamp((entropy_per_bit / 0.80) * 30, 0, 30)
 
 
 def score_monobit(balance: float) -> float:
@@ -134,11 +136,11 @@ def compute_health_score(validation: dict):
     chi_score = score_chi_square(p_value)
 
     raw_score = (
-        0.55 * entropy_score +
-        0.20 * monobit_score +
-        0.15 * runs_score +
-        0.10 * chi_score
-    )
+    0.40 * entropy_score +
+    0.25 * monobit_score +
+    0.20 * runs_score +
+    0.15 * chi_score
+)
 
     final_score = round(clamp(raw_score, 0, 100), 2)
 
