@@ -19,7 +19,7 @@ export const generateOtp = async (mode) => {
   return response.data;
 };
 
-export const runLotteryDemo = async (mode, participants) => {
+export const runLottery = async (mode, participants) => {
   const response = await api.post("/demo/lottery", {
     mode,
     participants,
