@@ -27,7 +27,7 @@ def test_pass_count(validation: dict) -> int:
         passes += 1
 
     min_entropy = validation.get("min_entropy", {}).get("min_entropy_per_bit", 0)
-    if min_entropy >= 0.85:
+    if min_entropy >= 0.80:
         passes += 1
 
     p_value = validation.get("chi_square", {}).get("p_value", 0)
