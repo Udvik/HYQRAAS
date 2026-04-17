@@ -114,18 +114,39 @@ def generate_key_api(payload: GenerateKeyRequest, db: Session = Depends(get_db))
 def history(db: Session = Depends(get_db)):
     logs = db.query(RNGLog).order_by(RNGLog.created_at.desc()).limit(20).all()
 
-    return [
-        {
-            "id": log.id,
-            "key_hex": log.key_hex,
-            "mode": log.mode,
-            "health_score": log.health_score,
-            "health_label": log.health_label,
-            "latency_ms": log.latency_ms,
-            "timestamp": log.created_at.isoformat()
-        }
-        for log in logs
-    ]
+    history_data = []
+
+    for log in logs:
+        try:
+            validation = json.loads(log.validation_json) if log.validation_json else {}
+        except Exception:
+            validation = {}
+
+        min_entropy = validation.get("min_entropy", {}).get("min_entropy_per_bit", None)
+        shannon_entropy = validation.get("entropy", {}).get("entropy_per_bit", None)
+
+        key_preview = (
+            f"{log.key_hex[:3]}...{log.key_hex[-3:]}"
+            if log.key_hex and len(log.key_hex) > 6
+            else log.key_hex
+        )
+
+        history_data.append(
+            {
+                "id": log.id,
+                "key_hex": log.key_hex,                 # full key
+                "key_preview": key_preview,            # compressed key
+                "mode": log.mode,
+                "health_score": log.health_score,
+                "health_label": log.health_label,
+                "latency_ms": log.latency_ms,
+                "min_entropy": min_entropy,
+                "shannon_entropy": shannon_entropy,
+                "timestamp": log.created_at.isoformat()
+            }
+        )
+
+    return history_data
 
 
 @app.get("/stats")
@@ -290,7 +311,7 @@ def analytics(db: Session = Depends(get_db)):
 
 @app.get("/demo/otp")
 def otp_demo(mode: str = "hybrid"):
-    result = generate_key(mode, 4)
+    result = generate_key(mode, 128)
 
     raw_bytes = bytes.fromhex(result["key_hex"])
     validation = run_all_validation(raw_bytes)
@@ -311,7 +332,7 @@ def lottery_demo(payload: LotteryRequest):
     if not payload.participants:
         return {"error": "No participants provided"}
 
-    result = generate_key(payload.mode, 4)
+    result = generate_key(payload.mode, 128)
 
     raw_bytes = bytes.fromhex(result["key_hex"])
     validation = run_all_validation(raw_bytes)
