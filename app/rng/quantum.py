@@ -16,9 +16,9 @@ simulator = AerSimulator()
 # Defaulting to 1 us style behavior is reasonable if you want
 # the raw quantum source to look weaker than hybrid.
 RAW_QUANTUM_PROFILE = {
-    "entropy_target": 0.824,
-    "bias_to_zero": 0.565,   # probability of outputting 0
-    "correlation": 0.08,     # probability of repeating previous bit
+    "entropy_target": 0.85,
+    "bias_to_zero": 0.555,   # probability of outputting 0
+    "correlation": 0.04,     # probability of repeating previous bit
 }
 
 
