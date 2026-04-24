@@ -167,8 +167,8 @@ export default function LotteryPage() {
                   onChange={(e) => setMode(e.target.value)}
                   style={styles.select}
                 >
-                  <option value="quantum">Quantum</option>
-                  <option value="hybrid">Hybrid</option>
+                  <option value="quantum" style={{ background: "#ffffff", color: "#000000" }}>Quantum</option>
+                  <option value="hybrid" style={{ background: "#ffffff", color: "#000000" }}>Hybrid</option>
                 </select>
               </div>
 
