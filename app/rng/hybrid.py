@@ -4,13 +4,6 @@ from app.rng.quantum import generate_quantum_bytes
 
 
 def generate_hybrid_bytes(n_bytes: int) -> bytes:
-    """
-    Final tuned hybrid generator:
-    - uses classical + quantum + XOR streams
-    - preserves more distributed mixed entropy
-    - uses rotating chunk windows
-    - uses evolving internal state for diffusion
-    """
 
     if n_bytes <= 0:
         return b""
