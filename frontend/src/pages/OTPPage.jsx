@@ -199,15 +199,7 @@ export default function OTPPage() {
             </div>
           </div>
 
-          <div style={styles.infoCard} className="otp-page-delay-3 otp-hover-lift">
-            <div style={styles.infoIcon}>✨</div>
-            <div>
-              <h3 style={styles.infoTitle}>Presentation Ready</h3>
-              <p style={styles.infoText}>
-                Strong visuals, transitions, and a polished product-style layout.
-              </p>
-            </div>
-          </div>
+          
         </section>
 
         <section style={styles.generatorSection} className="otp-page-delay-2">
@@ -231,8 +223,13 @@ export default function OTPPage() {
                   style={styles.select}
                 >
                   
-                  <option value="quantum">Quantum</option>
-                  <option value="hybrid">Hybrid</option>
+                  <option value="hybrid" style={{ background: "#ffffff", color: "#000000" }}>
+                Hybrid
+              </option>
+              
+              <option value="quantum" style={{ background: "#ffffff", color: "#000000" }}>
+                Quantum
+              </option>
                 </select>
               </div>
 
