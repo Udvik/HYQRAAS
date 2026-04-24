@@ -20,9 +20,8 @@ export default function GeneratorForm({ onGenerate, loading }) {
         <label>
           Mode:
           <select value={mode} onChange={(e) => setMode(e.target.value)} style={styles.input}>
-            <option value="classical">Classical</option>
-            <option value="quantum">Quantum</option>
-            <option value="hybrid">Hybrid</option>
+            <option value="Quantum">Quantum</option>
+            <option value="Hybrid">Hybrid</option>
           </select>
         </label>
 

@@ -5,7 +5,7 @@ import { useDashboard } from "../context/dashboard-context";
 
 export default function GeneratorPage() {
   const [mode, setMode] = useState("hybrid");
-  const [length, setLength] = useState(32);
+  const [length, setLength] = useState(128);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
@@ -60,11 +60,9 @@ export default function GeneratorPage() {
               onChange={(e) => setMode(e.target.value)}
             >
               <option value="hybrid" style={{ background: "#ffffff", color: "#000000" }}>
-                Hybrid
+                Hybrid(Recommended)
               </option>
-              <option value="classical" style={{ background: "#ffffff", color: "#000000" }}>
-                Classical
-              </option>
+              
               <option value="quantum" style={{ background: "#ffffff", color: "#000000" }}>
                 Quantum
               </option>
